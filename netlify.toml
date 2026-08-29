@@ -5,7 +5,7 @@
 
 
 [functions]
-  external_node_modules = ["express", "serverless-http"]
+  external_node_modules = ["express", "serverless-http", "dotenv"]
   node_bundler = "esbuild"
   
 [[redirects]]

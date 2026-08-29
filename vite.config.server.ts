@@ -29,11 +29,11 @@ export default defineConfig({
         "buffer",
         "querystring",
         "child_process",
-        // Externalized so the Netlify function runtime can resolve it
-        // at cold start. The function file re-exports handler from
-        // this bundle; serverless-http itself is provided by Netlify
-        // via external_node_modules in netlify.toml.
+        // Externalized so the Netlify function runtime can resolve them
+        // at cold start. Both are provided by Netlify via
+        // external_node_modules in netlify.toml.
         "serverless-http",
+        "dotenv",
       ],
       output: {
         format: "es",
@@ -48,6 +48,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./client"),
       "@shared": path.resolve(__dirname, "./shared"),
     },
+  },
+  ssr: {
+    // Force express + cors to be bundled inline into the server bundle.
+    // Without this, Vite's SSR build marks them as external and leaves
+    // bare `import "express"` statements in the output — which then
+    // crash the Netlify function runtime with "Cannot find module 'express'".
+    noExternal: ["express", "cors"],
   },
   define: {
     "process.env.NODE_ENV": '"production"',
