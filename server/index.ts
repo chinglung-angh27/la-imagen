@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
+import serverless from "serverless-http";
 import { handleDemo } from "./routes/demo";
 import { handleUnsplash } from "./routes/unsplash";
 
@@ -23,3 +24,7 @@ export function createServer() {
 
   return app;
 }
+
+// Netlify Functions entry. Wraps the Express app in serverless-http
+// so the prebuilt server bundle can be re-exported as a function handler.
+export const handler = serverless(createServer());

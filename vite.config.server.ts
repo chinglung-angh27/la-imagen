@@ -5,7 +5,7 @@ import path from "path";
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, "server/node-build.ts"),
+      entry: path.resolve(__dirname, "server/production.ts"),
       name: "server",
       fileName: "production",
       formats: ["es"],
@@ -29,9 +29,11 @@ export default defineConfig({
         "buffer",
         "querystring",
         "child_process",
-        // External dependencies that should not be bundled
-        "express",
-        "cors",
+        // Externalized so the Netlify function runtime can resolve it
+        // at cold start. The function file re-exports handler from
+        // this bundle; serverless-http itself is provided by Netlify
+        // via external_node_modules in netlify.toml.
+        "serverless-http",
       ],
       output: {
         format: "es",
