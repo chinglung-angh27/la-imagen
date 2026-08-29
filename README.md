@@ -30,3 +30,10 @@ Set `UNSPLASH_ACCESS_KEY` as an **environment variable on the function** (Site s
 - `pnpm build` — build client + server
 - `pnpm typecheck` — `tsc`
 - `pnpm test` — Vitest
+
+## Design
+- Type system: **Instrument Serif** (display, italic), **Switzer** (body), **Space Mono** (data line).
+- Palette: charcoal `#16161A` darkroom with a live "safelight" aura behind the hero — a fixed radial gradient driven by the currently selected color (`--chosen` CSS var on `<body>`).
+
+## License
+[MIT](./LICENSE).
