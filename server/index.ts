@@ -2,7 +2,6 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import serverless from "serverless-http";
-import { handleDemo } from "./routes/demo";
 import { handleUnsplash } from "./routes/unsplash";
 
 export function createServer() {
@@ -19,7 +18,6 @@ export function createServer() {
     res.json({ message: ping });
   });
 
-  app.get("/api/demo", handleDemo);
   app.get("/api/unsplash", handleUnsplash);
 
   return app;
