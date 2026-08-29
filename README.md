@@ -8,6 +8,10 @@
 
 A color-picker that thinks in pictures. Pick a color from a wheel, a preset, or a hex value, and La Imagen pulls a gallery of Unsplash photos that live in the same world — ranked by pixel distance, not by guesswork.
 
+<p align="center">
+  <img src="docs/hero.png" alt="La Imagen home screen: darkroom backdrop with a red safelight aura behind the wordmark, a color swatch in the center, and the hex/brightness/page data line up top" width="100%">
+</p>
+
 </div>
 
 ---
@@ -25,6 +29,13 @@ La Imagen is a single-page web app for finding images that match a color in your
 ```
 
 It's built as a deliberate design object too: a charcoal darkroom with a live "safelight" aura behind the hero that tracks the color you're currently searching for.
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/picker.png" alt="Color Selector modal open over the hero: tabbed input (Preview, Wheel, Presets, Hex), canvas-rendered H/S wheel, live hex value, brightness slider, curated preset dots, Cancel and Apply actions"></td>
+    <td width="50%"><img src="docs/results.png" alt="Full results page in orange: the safelight aura now glows orange, the data line reads DD881A, and a four-column grid of thirty Unsplash photos is ranked by pixel distance to the target"></td>
+  </tr>
+</table>
 
 ---
 
